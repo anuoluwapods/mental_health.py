@@ -24,8 +24,8 @@ db = deta.Base("menatal-health")
           
 
 with st.form("Submit", clear_on_submit=True):
-     date = col3.date_input("Input Date", datetime.date(2023, 1, 1))
-     time = col4.time_input('Input Time', datetime.time(8, 01))
+     date = col3.date_input("Input Date")
+     time = col4.time_input("Input Time")
      emotions = col3.text_input("How do i feel today?")
      depression = col4.text_input("Expressing how i feel depressed today")
      anxiety = col3.text_input("Expressing how i feel anxious today")
