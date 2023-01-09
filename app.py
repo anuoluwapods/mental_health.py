@@ -4,6 +4,7 @@ from deta import Deta
 import json
 import base64
 #from PIL import Image
+from streamlit.runtime.runtime import Runtime as Runtime
 
 #image = Image.open('image1.png')
 
