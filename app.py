@@ -4,7 +4,7 @@ from deta import Deta
 import json
 import base64
 #from PIL import Image
-from streamlit.runtime.runtime import Runtime as Runtime
+#from streamlit.runtime.runtime import Runtime as Runtime
 
 #image = Image.open('image1.png')
 
@@ -24,8 +24,8 @@ db = deta.Base("menatal-health")
           
 
 with st.form("Submit", clear_on_submit=True):
-     date = col3.date_input("Input Date")
-     time = col4.time_input("Input Time")
+     #date = col3.date_input("Input Date")
+     #time = col4.time_input("Input Time")
      emotions = col3.text_input("How do i feel today?")
      depression = col4.text_input("Expressing how i feel depressed today")
      anxiety = col3.text_input("Expressing how i feel anxious today")
@@ -33,4 +33,4 @@ with st.form("Submit", clear_on_submit=True):
      submitted = st.form_submit_button("Submit")
      if submitted:
         st.write("Submitted Successfully")
-        db.put({"Date":date, "Time":time, "Emotions":emotions, "Depression":depression, "Anxiety":anxiety, "Maniac":maniac})
+        db.put({"Emotions":emotions, "Depression":depression, "Anxiety":anxiety, "Maniac":maniac})
