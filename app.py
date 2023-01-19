@@ -8,29 +8,35 @@ import base64
 
 #image = Image.open('image1.png')
 
-col1, col2 = st.columns(2)
-col3, col4 = st.columns(2)
+tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac Signs", "Depression Signs", "Wellness Signs"])
 
-col1.header("My Mental Health App")
-
-col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+with tab1:
+ col1, col2 = st.columns(2)
+ col3, col4 = st.columns(2)
+ col1.header("My Mental Health App")
+ col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
 
 #col2.image(image)
 
-deta = Deta(st.secrets["deta_key"])
+ deta = Deta(st.secrets["deta_key"])
 
-db = deta.Base("menatal-health")
+ db = deta.Base("mood-check") # Happy, Sad, write
  
+ mood = st.radio("How Do You Feel Today",
+    ('Happy', 'Sad', 'Let me explain'))
+ if mood == 'Happy':
+  db.put({"Mood":mood})
+  
+ if mood == 'Sad':
+  db.put({"Mood":mood})
           
-
-with st.form("Submit", clear_on_submit=True):
-     #date = col3.date_input("Input Date")
-     #time = col4.time_input("Input Time")
-     emotions = col3.text_input("How do i feel today?")
-     depression = col4.text_input("Expressing how i feel depressed today")
-     anxiety = col3.text_input("Expressing how i feel anxious today")
-     maniac = col4.text_input("Expressing how i feel excessively happy today")
-     submitted = st.form_submit_button("Submit")
-     if submitted:
-        st.write("Submitted Successfully")
-        db.put({"Emotions":emotions, "Depression":depression, "Anxiety":anxiety, "Maniac":maniac})
+ if mood == 'Let me explain':
+  st.textinput()
+  db.put({"Mood":mood})
+          
+  
+     #with st.form("Submit", clear_on_submit=True):
+     #submitted = st.form_submit_button("Submit")
+     #if submitted:
+        #st.write("Submitted Successfully")
+        #db.put({"Emotions":emotions, "Depression":depression, "Anxiety":anxiety, "Maniac":maniac})
