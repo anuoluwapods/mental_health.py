@@ -53,14 +53,14 @@ with tab2:
 
  
  with tab3:
- col1, col2 = st.columns(2)
- col3, col4 = st.columns(2)
+  col1, col2 = st.columns(2)
+  col3, col4 = st.columns(2)
  
- col1.header("My Mental Health App")
- col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+  col1.header("My Mental Health App")
+  col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
  
- deta2 = Deta(st.secrets["deta_key2"])
- db2 = deta2.Base("depression-signs")
+  deta2 = Deta(st.secrets["deta_key2"])
+  db2 = deta2.Base("depression-signs")
  
  with st.form("form", clear_on_submit=True):
     depression = st.text_input("Explain Your Mood")
@@ -69,25 +69,25 @@ with tab2:
      db.put({"Depression Signs": depression})
      
  with tab4:
- col1, col2 = st.columns(2)
- col3, col4 = st.columns(2)
- col1.header("My Mental Health App")
- col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+  col1, col2 = st.columns(2)
+  col3, col4 = st.columns(2)
+  col1.header("My Mental Health App")
+  col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
 
 #col2.image(image)
 
- deta3 =  Deta(st.secrets["deta_key3"])
+  deta3 =  Deta(st.secrets["deta_key3"])
  
 
- db3 = deta3.Base("mood-check") 
+  db3 = deta3.Base("mood-check") 
  
- healthy = st.radio("How Do You Feel Today",
+  healthy = st.radio("How Do You Feel Today",
     ('Healthy', 'Sick'))
- if healthy == 'Healthy':
-  db.put({"Healthy":healthy})
+  if healthy == 'Healthy':
+    db.put({"Healthy":healthy})
   
- if healthy == 'Sick':
-  db.put({"Healthy":healthy})
+  if healthy == 'Sick':
+    db.put({"Healthy":healthy})
           
   
     
