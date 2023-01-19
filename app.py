@@ -18,9 +18,10 @@ with tab1:
 
 #col2.image(image)
 
- deta = Deta(st.secrets["deta_key"])
+ deta =  Deta(st.secrets["deta_key"])
+ 
 
- db = deta.Base("mood-check") # Happy, Sad, write
+ db = deta.Base("mood-check") 
  
  mood = st.radio("How Do You Feel Today",
     ('Happy', 'Sad', 'Let me explain'))
@@ -31,12 +32,62 @@ with tab1:
   db.put({"Mood":mood})
           
  if mood == 'Let me explain':
-  st.textinput()
+  st.textinput("Explain Your Mood")
   db.put({"Mood":mood})
+  
+with tab2:
+ col1, col2 = st.columns(2)
+ col3, col4 = st.columns(2)
+ 
+ col1.header("My Mental Health App")
+ col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+ 
+ deta1 = Deta(st.secrets["deta_key1"])
+ db1 = deta1.Base("maniac-signs")
+ 
+ with st.form("form", clear_on_submit=True):
+    maniac = st.text_input("Explain Your Mood")
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+     db.put({"Maniac Signs": maniac})
+
+ 
+ with tab3:
+ col1, col2 = st.columns(2)
+ col3, col4 = st.columns(2)
+ 
+ col1.header("My Mental Health App")
+ col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+ 
+ deta2 = Deta(st.secrets["deta_key2"])
+ db2 = deta2.Base("depression-signs")
+ 
+ with st.form("form", clear_on_submit=True):
+    depression = st.text_input("Explain Your Mood")
+    submitted = st.form_submit_button("Submit")
+    if submitted:
+     db.put({"Depression Signs": depression})
+     
+ with tab4:
+ col1, col2 = st.columns(2)
+ col3, col4 = st.columns(2)
+ col1.header("My Mental Health App")
+ col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
+
+#col2.image(image)
+
+ deta3 =  Deta(st.secrets["deta_key3"])
+ 
+
+ db3 = deta3.Base("mood-check") 
+ 
+ healthy = st.radio("How Do You Feel Today",
+    ('Healthy', 'Sick'))
+ if healthy == 'Healthy':
+  db.put({"Healthy":healthy})
+  
+ if healthy == 'Sick':
+  db.put({"Healthy":healthy})
           
   
-     #with st.form("Submit", clear_on_submit=True):
-     #submitted = st.form_submit_button("Submit")
-     #if submitted:
-        #st.write("Submitted Successfully")
-        #db.put({"Emotions":emotions, "Depression":depression, "Anxiety":anxiety, "Maniac":maniac})
+    
