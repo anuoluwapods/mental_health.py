@@ -25,12 +25,11 @@ with open(r'config.yaml') as file:
         config['preauthorized']
     )
     
-    name, authentication_status, username = authenticator.login('Login', 'app')
+    name, authentication_status, username = authenticator.login('Login', 'main')
     
     if authentication_status:
-        authenticator.logout('Logout', 'app')
+        authenticator.logout('Logout', 'main')
     if username == 'anuoluwapods':
-        st.write(f'Welcome *{st.session_state["name"]}*')
         with tab1:
          col1, col2 = st.columns(2)
          col3, col4 = st.columns(2)
