@@ -14,7 +14,7 @@ hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
     
-authenticator = Authenticate(
+authenticator = authenticate(
     config['credentials'],
     config['cookie']['name'],
     config['cookie']['key'],
