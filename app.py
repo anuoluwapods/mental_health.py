@@ -4,6 +4,7 @@ from deta import Deta
 import json
 import base64
 import yaml
+from yaml import SafeLoader
 from hasher import Hasher
 import streamlit_authenticator as stauth
 
