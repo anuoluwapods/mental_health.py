@@ -25,19 +25,16 @@ name, authentication_status, username = authenticator.login('Login', 'main')
 
 if  authentication_status:
         authenticator.logout('Logout', 'main')
-if username == 'jsmith':
+if username == 'Anuoluwapo Balogun':
         st.write(f'Welcome *{name}*')
-        st.title('Application 1')
-elif username == 'rbriggs':
-        st.write(f'Welcome *{name}*')
-        st.title('Application 2')
+        tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 elif authentication_status == False:
         st.error('Username/password is incorrect')
 elif authentication_status == None:
         st.warning('Please enter your username and password')
 
 
-tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
+
 
 
 with tab1:
