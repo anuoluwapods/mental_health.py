@@ -11,23 +11,24 @@ from authenticate import Authenticate
 
 
 tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
+
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
     
-authenticator = Authenticate(
+    authenticator = Authenticate(
         config['credentials'],
         config['cookie']['name'],
         config['cookie']['key'],
         config['cookie']['expiry_days'],
         config['preauthorized']
-)
+    )
     
-name, authentication_status, username = authenticator.login('Login', 'main')
+    name, authentication_status, username = authenticator.login('Login', 'main')
 
-if  authentication_status:
+    if  authentication_status:
         authenticator.logout('Logout', 'main')
-if username == 'Anuoluwapo Balogun':
+    if username == 'Anuoluwapo Balogun':
         st.write(f'Welcome *{name}*')
         with tab1:
          col1, col2 = st.columns(2)
