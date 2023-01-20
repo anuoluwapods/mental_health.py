@@ -3,6 +3,7 @@ import pandas as pd
 from deta import Deta
 import json
 import base64
+import streamlit_authenticator as stauth
 #from PIL import Image
 #from streamlit.runtime.runtime import Runtime as Runtime
 
