@@ -122,11 +122,11 @@ class Authenticate:
         bool
             Validity of entered credentials.
         """
-        if self.username in self.credentials['usernames']:
+        if self.username in self.credentials['username']:
             try:
                 if self._check_pw():
                     if inplace:
-                        st.session_state['name'] = self.credentials['usernames'][self.username]['name']
+                        st.session_state['name'] = self.credentials['username'][self.username]['name']
                         self.exp_date = self._set_exp_date()
                         self.token = self._token_encode()
                         self.cookie_manager.set(self.cookie_name, self.token,
@@ -196,7 +196,7 @@ class Authenticate:
         location: str
             The location of the logout button i.e. main or sidebar.
         """
-        if location not in ['main', 'sidebar']:
+        if location not in ['main', 'tab']:
             raise ValueError("Location must be one of 'main' or 'sidebar'")
         if location == 'main':
             if st.button(button_name):
