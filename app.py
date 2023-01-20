@@ -24,7 +24,7 @@ with tab1:
  db = deta.Base("mood-check") 
  
  mood = st.radio("How Do You Feel Today",
-    ('Happy', 'Sad', 'Let me explain'))
+    ('Choose', 'Happy', 'Sad', 'Let me explain'))
  if mood == 'Happy':
   db.put({"Mood":mood})
   
