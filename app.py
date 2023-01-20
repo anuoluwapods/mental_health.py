@@ -9,8 +9,6 @@ from hasher import Hasher
 import streamlit_authenticator as stauth
 from authenticate import Authenticate
 
-
-tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -25,14 +23,18 @@ with open(r'config.yaml') as file:
     
     name, authentication_status, username = authenticator.login('Login', 'main')
 
-    if authentication_status:
+    if st.session_state["authentication_status"]:
         authenticator.logout('Logout', 'main')
-        st.write(f'Welcome *{name}*')
+        st.write(f'Welcome *{st.session_state["name"]}*')
         st.title('Some content')
-    elif authentication_status == False:
+    elif st.session_state["authentication_status"] == False:
         st.error('Username/password is incorrect')
-    elif authentication_status == None:
+    elif st.session_state["authentication_status"] == None:
         st.warning('Please enter your username and password')
+
+
+tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
+
 
 with tab1:
  col1, col2 = st.columns(2)
