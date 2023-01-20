@@ -26,8 +26,9 @@ with open(r'config.yaml') as file:
     
     name, authentication_status, username = authenticator.login('Login', 'main')
 
-    if st.session_state["authentication_status"]:
+    if authentication_status:
         authenticator.logout('Logout', 'main')
+    if username == 'anuoluwapods':
         st.write(f'Welcome *{st.session_state["name"]}*')
         with tab1:
          col1, col2 = st.columns(2)
@@ -93,10 +94,10 @@ with open(r'config.yaml') as file:
 
 
         
-    elif st.session_state["authentication_status"] == False:
-       st.error('Username/password is incorrect')
-    elif st.session_state["authentication_status"] == None:
-       st.warning('Please enter your username and password')
+    elif authentication_status == False:
+        st.error('Username/password is incorrect')
+    elif authentication_status == None:
+        st.warning('Please enter your username and password')
 
 
 
