@@ -196,7 +196,7 @@ class Authenticate:
         location: str
             The location of the logout button i.e. main or sidebar.
         """
-        if location not in ['main', 'tab']:
+        if location not in ['main', 'sidebar']:
             raise ValueError("Location must be one of 'main' or 'sidebar'")
         if location == 'main':
             if st.button(button_name):
