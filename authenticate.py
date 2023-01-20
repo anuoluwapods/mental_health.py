@@ -32,7 +32,7 @@ class Authenticate:
             The list of emails of unregistered users authorized to register.
         """
         self.credentials = credentials
-        self.credentials['usernames'] = {key.lower(): value for key, value in credentials['usernames'].items()}
+        self.credentials['username'] = {key.lower(): value for key, value in credentials['username'].items()}
         self.cookie_name = cookie_name
         self.key = key
         self.cookie_expiry_days = cookie_expiry_days
