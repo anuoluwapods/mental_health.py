@@ -3,7 +3,7 @@ import pandas as pd
 from deta import Deta
 import json
 import base64
-import pymayl
+import pyyaml
 from hasher import Hasher
 import streamlit_authenticator as stauth
 
