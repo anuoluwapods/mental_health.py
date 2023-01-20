@@ -10,6 +10,7 @@ import streamlit_authenticator as stauth
 from authenticate import Authenticate
 
 
+tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 
@@ -25,8 +26,7 @@ with open(r'config.yaml') as file:
     )
     
     name, authentication_status, username = authenticator.login('Login', 'main')
-    tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
-
+    
     if authentication_status:
         authenticator.logout('Logout', 'main')
     if username == 'anuoluwapods':
