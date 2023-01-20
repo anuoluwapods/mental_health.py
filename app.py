@@ -4,14 +4,12 @@ from deta import Deta
 import json
 import base64
 import streamlit_authenticator as stauth
-#from PIL import Image
-#from streamlit.runtime.runtime import Runtime as Runtime
 
-#image = Image.open('image1.png')
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
-with open('config.yaml') as file:
+with open(r'../config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
+    
 authenticator = Authenticate(
     config['credentials'],
     config['cookie']['name'],
