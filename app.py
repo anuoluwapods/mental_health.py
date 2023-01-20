@@ -3,6 +3,7 @@ import pandas as pd
 from deta import Deta
 import json
 import base64
+import PyYAML
 import streamlit_authenticator as stauth
 
 
