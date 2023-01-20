@@ -1,15 +1,14 @@
+credentials:
+  username:
+    anuoluwapods:
+      email: ifeoluwapobalogun1@gmail.com
+      name: Anuoluwapo Balogun
+      password: 'Creativeart1.' # To be replaced with hashed password
+ 
 cookie:
   expiry_days: 30
   key: random_signature_key
   name: random_cookie_name
 preauthorized:
   emails:
-  - ifeoluwapobalogun1@gmail.com
-
-credentials:
-  usernames:
-    anuoluwapods:
-      email: ifeoluwapobalogun1@gmail.com
-      name: Anuoluwapo Balogun
-      password: 'Creativeart1.'  # To be replaced with hashed password
-
+  - designegycreatives@gmail.com
