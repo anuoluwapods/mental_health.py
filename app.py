@@ -93,10 +93,10 @@ with open(r'config.yaml') as file:
 
 
         
-    elif authentication_status == False:
-        st.error('Username/password is incorrect')
-    elif authentication_status == None:
-        st.warning('Please enter your username and password')
+    elif st.session_state["authentication_status"] == False:
+       st.error('Username/password is incorrect')
+    elif st.session_state["authentication_status"] == None:
+       st.warning('Please enter your username and password')
 
 
 
