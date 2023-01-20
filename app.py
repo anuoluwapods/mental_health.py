@@ -7,7 +7,7 @@ import yaml
 from yaml import SafeLoader
 from hasher import Hasher
 import streamlit_authenticator as stauth
-from authenticate import authenticate
+from authenticate import Authenticate
 
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
