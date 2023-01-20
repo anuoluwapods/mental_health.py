@@ -7,7 +7,7 @@ import yaml
 from yaml import SafeLoader
 from hasher import Hasher
 import streamlit_authenticator as stauth
-from authenticate import authenticate
+import authenticate
 
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
@@ -21,6 +21,7 @@ authenticator = Authenticate(
     config['cookie']['expiry_days'],
     config['preauthorized']
 )
+
 name, authentication_status, username = authenticator.login('Login', 'main')
 if authentication_status:
     authenticator.logout('Logout', 'main')
