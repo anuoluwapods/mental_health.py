@@ -78,7 +78,7 @@ with open(r'config.yaml') as file:
     with st.form("form", clear_on_submit=True):
         maniac = st.text_input("Explain Your Mood ")
         submitted = st.form_submit_button("Submit")
-       if submitted:
+    if submitted:
           db.put({"Maniac Signs": maniac})
 
 
