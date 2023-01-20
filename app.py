@@ -13,6 +13,7 @@ from authenticate import Authenticate
 tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
+
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
     
@@ -28,7 +29,7 @@ with open(r'config.yaml') as file:
 
     if  authentication_status:
         authenticator.logout('Logout', 'main')
-    if username == 'Anuoluwapo Balogun':
+    if username == 'anuoluwapods':
         st.write(f'Welcome *{name}*')
         with tab1:
          col1, col2 = st.columns(2)
