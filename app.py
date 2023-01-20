@@ -14,15 +14,24 @@ hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
     
-authenticator = Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+    authenticator = Authenticate(
+        config['credentials'],
+        config['cookie']['name'],
+        config['cookie']['key'],
+        config['cookie']['expiry_days'],
+        config['preauthorized']
+    )
     
-name, authentication_status, username = authenticator.login('Login', 'main')
+    name, authentication_status, username = authenticator.login('Login', 'main')
+
+    if authentication_status:
+        authenticator.logout('Logout', 'main')
+        st.write(f'Welcome *{name}*')
+        st.title('Some content')
+    elif authentication_status == False:
+        st.error('Username/password is incorrect')
+    elif authentication_status == None:
+        st.warning('Please enter your username and password')
   
 tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 
