@@ -8,7 +8,7 @@ import base64
 
 #image = Image.open('image1.png')
 
-tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac Signs", "Depression Signs", "Wellness Signs"])
+tab1, tab2, tab3 = st.tabs(["Mood Check", "Maniac & Depression Signs", "Wellness Signs"])
 
 with tab1:
  col1, col2 = st.columns(2)
@@ -43,32 +43,16 @@ with tab2:
  col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
  
  deta1 = Deta(st.secrets["deta_key1"])
- db1 = deta1.Base("maniac-signs")
+ db1 = deta1.Base("maniac-depression-signs")
  
  with st.form("form", clear_on_submit=True):
-    maniac = st.text_input("Explain Your Mood")
+    maniac = st.text_input("Explain Your Mood ")
     submitted = st.form_submit_button("Submit")
     if submitted:
      db.put({"Maniac Signs": maniac})
 
- 
+
  with tab3:
-  col1, col2 = st.columns(2)
-  col3, col4 = st.columns(2)
- 
-  col1.header("My Mental Health App")
-  col1.write("tracking my mental health so i can predict my mood with enough data accurately and become better")
- 
-  deta2 = Deta(st.secrets["deta_key2"])
-  db2 = deta2.Base("depression-signs")
- 
- with st.form("form", clear_on_submit=True):
-    depression = st.text_input("Explain Your Mood")
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-     db.put({"Depression Signs": depression})
-     
- with tab4:
   col1, col2 = st.columns(2)
   col3, col4 = st.columns(2)
   col1.header("My Mental Health App")
