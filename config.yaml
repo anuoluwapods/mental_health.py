@@ -11,5 +11,5 @@ credentials:
     anuoluwapods:
       email: ifeoluwapobalogun1@gmail.com
       name: Anuoluwapo Balogun
-      password: 'Creativeart1.' # To be replaced with hashed password
+      password:  # To be replaced with hashed password
 
