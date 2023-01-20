@@ -10,7 +10,7 @@ import streamlit_authenticator as stauth
 #image = Image.open('image1.png')
 
 hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
-with open('../config.yaml') as file:
+with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 authenticator = Authenticate(
     config['credentials'],
