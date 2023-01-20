@@ -66,7 +66,7 @@ with tab2:
   db3 = deta3.Base("mood-check") 
  
   healthy = st.radio("How Do You Feel Today",
-    ('Healthy', 'Sick'))
+    ('Choose','Healthy', 'Sick'))
   if healthy == 'Healthy':
     db.put({"Healthy":healthy})
   
