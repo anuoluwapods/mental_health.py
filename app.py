@@ -13,27 +13,27 @@ hashed_passwords = stauth.Hasher(['Creativeart1.']).generate()
 with open(r'config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
     
-    authenticator = Authenticate(
+authenticator = Authenticate(
         config['credentials'],
         config['cookie']['name'],
         config['cookie']['key'],
         config['cookie']['expiry_days'],
         config['preauthorized']
-    )
+)
     
-    name, authentication_status, username = authenticator.login('Login', 'main')
+name, authentication_status, username = authenticator.login('Login', 'main')
 
-    if  authentication_status:
+if  authentication_status:
         authenticator.logout('Logout', 'main')
-    if username == 'jsmith':
+if username == 'jsmith':
         st.write(f'Welcome *{name}*')
         st.title('Application 1')
-    elif username == 'rbriggs':
+elif username == 'rbriggs':
         st.write(f'Welcome *{name}*')
         st.title('Application 2')
-    elif authentication_status == False:
+elif authentication_status == False:
         st.error('Username/password is incorrect')
-    elif authentication_status == None:
+elif authentication_status == None:
         st.warning('Please enter your username and password')
 
 
